@@ -1,12 +1,17 @@
-package com.lizbyu.beans;
+package com.lizbyu.lang;
 
 /**
- * basic element in linked data structure
+ * basic element node used in ADT
+ * @param <V> val type
  */
 public class Node<V> {
     private V val;
 
     public Node(V val) {
+        this.val = val;
+    }
+
+    public void setVal(V val) {
         this.val = val;
     }
 
