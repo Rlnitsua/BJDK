@@ -1,5 +1,6 @@
 package com.lizbyu.tree;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,18 +30,24 @@ public class BinaryTreeTest {
     @Test
     public void preorderTraversal() {
         System.out.println("\npre order traversal");
-        binaryTree.preorderTraversal(new TreeNodeHandler());
+        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        binaryTree.preorderTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "123");
     }
 
     @Test
     public void inorderTraversal() {
         System.out.println("\nin order traversal");
-        binaryTree.inorderTraversal(new TreeNodeHandler());
+        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        binaryTree.inorderTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "213");
     }
 
     @Test
     public void postorderTraversal() {
         System.out.println("\npost order traversal");
-        binaryTree.postorderTraversal(new TreeNodeHandler());
+        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        binaryTree.postorderTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "231");
     }
 }
