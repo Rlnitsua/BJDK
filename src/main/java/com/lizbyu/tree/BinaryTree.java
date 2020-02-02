@@ -3,6 +3,11 @@ package com.lizbyu.tree;
 import com.lizbyu.lang.Node;
 import com.lizbyu.lang.NodeHandler;
 
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingDeque;
+
 /**
  * Binary tree implements
  * A tree-like structure that is rooted and in which each vertex
@@ -102,5 +107,22 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
         postorderTraversal(root.left, handler);
         postorderTraversal(root.right, handler);
         handler.handle(root);
+    }
+
+    @Override
+    public void levelTraversal() {
+        Queue<Node<V>> queue = new LinkedList<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            Node<V> poll = queue.poll();
+            System.out.println(poll.getVal());
+            if (poll.left != null) {
+                queue.add(poll.left);
+            }
+            if (poll.right != null) {
+                queue.add(poll.right);
+            }
+        }
     }
 }

@@ -50,4 +50,9 @@ public class BinaryTreeTest {
         binaryTree.postorderTraversal(treeNodeHandler);
         Assert.assertEquals(treeNodeHandler.signedTag(), "231");
     }
+
+    @Test
+    public void levelTraversal() {
+        binaryTree.levelTraversal();
+    }
 }
