@@ -27,5 +27,5 @@ public interface TreeTraversable<V, N extends Node<V>> extends Traversable {
      * In this traversal method, all nodes at depth "x" are visited
      * before any node at depth "x+1"
      */
-    void levelTraversal();
+    void levelTraversal(NodeHandler<N> handle);
 }

@@ -4,9 +4,7 @@ import com.lizbyu.lang.Node;
 import com.lizbyu.lang.NodeHandler;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Binary tree implements
@@ -110,13 +108,13 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
     }
 
     @Override
-    public void levelTraversal() {
+    public void levelTraversal(NodeHandler handler) {
         Queue<Node<V>> queue = new LinkedList<>();
         queue.add(root);
 
         while(!queue.isEmpty()) {
             Node<V> poll = queue.poll();
-            System.out.println(poll.getVal());
+            handler.handle(poll);
             if (poll.left != null) {
                 queue.add(poll.left);
             }

@@ -53,6 +53,7 @@ public class BinaryTreeTest {
 
     @Test
     public void levelTraversal() {
-        binaryTree.levelTraversal();
+        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        binaryTree.levelTraversal(treeNodeHandler);
     }
 }

@@ -20,7 +20,7 @@ public class Tree implements TreeTraversable {
     }
 
     @Override
-    public void levelTraversal() {
+    public void levelTraversal(NodeHandler handle) {
 
     }
 
