@@ -6,18 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class BinaryTreeFactoryTest {
     public static final String TAG = "BinaryTreeFactoryTest";
-    private BinaryTreeFactory<Integer> binaryTreeFactory;
+    private BinaryTreeUtils<Integer> binaryTreeFactory;
 
     @Before
     public void setUp() throws Exception {
-        binaryTreeFactory = new BinaryTreeFactory<>();
+        binaryTreeFactory = new BinaryTreeUtils<>();
     }
 
     @Test
