@@ -1,30 +1,29 @@
 package com.lizbyu.tree;
 
+import com.lizbyu.util.BinaryTreeUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class BinaryTreeTest {
+    private BinaryTreeUtils<Integer> binaryTreeUtils;
     private BinaryTree<Integer, BinaryTree.Node<Integer>> binaryTree;
 
+    /**
+     *          1
+     *        /   \
+     *       2     4
+     *      / \   /
+     *     8  9  27
+     *       /    \
+     *     11     3
+     */
     @Before
     public void setUp() {
-        BinaryTree.Node<Integer> root = initRoot();
-        binaryTree = new BinaryTree<>(root);
-    }
-
-    /**
-     *    1
-     *   / \
-     *  2  3
-     */
-    private BinaryTree.Node<Integer> initRoot() {
-        BinaryTree.Node<Integer> root = new BinaryTree.Node<>(1);
-        BinaryTree.Node<Integer> left = new BinaryTree.Node<>(2);
-        BinaryTree.Node<Integer> right = new BinaryTree.Node<>(3);
-        root.setLeft(left);
-        root.setRight(right);
-        return root;
+        binaryTreeUtils = new BinaryTreeUtils<>();
+        binaryTree = binaryTreeUtils.create(Arrays.asList(1, 2, 4, 8, 9, 27, null, null, null, 11, null, null, 3));
     }
 
     @Test
@@ -32,7 +31,7 @@ public class BinaryTreeTest {
         System.out.println("\npre order traversal");
         TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
         binaryTree.preorderTraversal(treeNodeHandler);
-        Assert.assertEquals(treeNodeHandler.signedTag(), "123");
+        Assert.assertEquals(treeNodeHandler.signedTag(), "1289114273");
     }
 
     @Test
@@ -40,7 +39,7 @@ public class BinaryTreeTest {
         System.out.println("\nin order traversal");
         TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
         binaryTree.inorderTraversal(treeNodeHandler);
-        Assert.assertEquals(treeNodeHandler.signedTag(), "213");
+        Assert.assertEquals(treeNodeHandler.signedTag(), "8211912734");
     }
 
     @Test
@@ -48,12 +47,41 @@ public class BinaryTreeTest {
         System.out.println("\npost order traversal");
         TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
         binaryTree.postorderTraversal(treeNodeHandler);
-        Assert.assertEquals(treeNodeHandler.signedTag(), "231");
+        Assert.assertEquals(treeNodeHandler.signedTag(), "8119232741");
     }
 
     @Test
     public void levelTraversal() {
+        System.out.println("\nlevel traversal");
         TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
         binaryTree.levelTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "1248927113");
+    }
+
+    @Test
+    public void invert() {
+        System.out.println("\ninvert binary tree");
+        binaryTree.invert();
+
+        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+
+        System.out.println("\npre order traversal");
+        binaryTree.preorderTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "1427329118");
+        treeNodeHandler.reset();
+
+        System.out.println("\ninorder traversal");
+        binaryTree.inorderTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "4327191128");
+        treeNodeHandler.reset();
+
+        System.out.println("\npost order traversal");
+        binaryTree.postorderTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "3274119821");
+        treeNodeHandler.reset();
+
+        System.out.println("\nleveltraversal");
+        binaryTree.levelTraversal(treeNodeHandler);
+        Assert.assertEquals(treeNodeHandler.signedTag(), "1422798311");
     }
 }

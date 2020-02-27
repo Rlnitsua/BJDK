@@ -123,4 +123,23 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
             }
         }
     }
+
+    public void invert() {
+        invert(root);
+    }
+
+    private void invert(Node<V> node) {
+        if (node == null) {
+            return;
+        }
+
+        // invert node
+        Node<V> temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+
+        // the same thing to left node and right node
+        invert(node.left);
+        invert(node.right);
+    }
 }

@@ -19,4 +19,8 @@ public class TreeNodeHandler<V, N extends Node<V>> implements NodeHandler<N> {
     public String signedTag() {
         return sb.toString();
     }
+
+    public void reset() {
+        sb = new StringBuffer();
+    }
 }
