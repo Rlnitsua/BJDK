@@ -3,7 +3,9 @@ package com.lizbyu.tree;
 import com.lizbyu.lang.Node;
 import com.lizbyu.lang.NodeHandler;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -122,6 +124,30 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
                 queue.add(poll.right);
             }
         }
+    }
+
+    public List<List<V>> levelTraversal0(NodeHandler<Node<V>> handler) {
+        List<List<V>> list = new ArrayList<>();
+        levelTraversal(root, list, 0, handler);
+        return list;
+    }
+
+    private void levelTraversal(Node<V> node, List<List<V>> list, int level, NodeHandler<Node<V>> handler) {
+        if (node == null) {
+            return;
+        }
+
+        if (list.size() <= level) {
+            List<V> element = new ArrayList<>();
+            list.add(element);
+        }
+
+        List<V> currentElement = list.get(level);
+        currentElement.add(node.getVal());
+        handler.handle(node);
+
+        levelTraversal(node.left, list, level + 1, handler);
+        levelTraversal(node.right, list, level + 1, handler);
     }
 
     public void invert() {

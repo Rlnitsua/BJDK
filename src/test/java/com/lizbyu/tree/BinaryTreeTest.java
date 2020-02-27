@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class BinaryTreeTest {
     private BinaryTreeUtils<Integer> binaryTreeUtils;
@@ -59,6 +60,20 @@ public class BinaryTreeTest {
     }
 
     @Test
+    public void levelTraversal0() {
+        System.out.println("\nlevel traversal0");
+        TreeNodeHandler<Integer, BinaryTree.Node<Integer>> treeNodeHandler = new TreeNodeHandler<>();
+
+        List<List<Integer>> list = binaryTree.levelTraversal0(treeNodeHandler);
+        // pre order list
+        Assert.assertEquals(treeNodeHandler.signedTag(), "1289114273");
+        Assert.assertArrayEquals(list.get(0).toArray(new Integer[0]), new Integer[]{1});
+        Assert.assertArrayEquals(list.get(1).toArray(new Integer[0]), new Integer[]{2, 4});
+        Assert.assertArrayEquals(list.get(2).toArray(new Integer[0]), new Integer[]{8, 9, 27});
+        Assert.assertArrayEquals(list.get(3).toArray(new Integer[0]), new Integer[]{11, 3});
+    }
+
+    @Test
     public void invert() {
         System.out.println("\ninvert binary tree");
         binaryTree.invert();
@@ -84,4 +99,5 @@ public class BinaryTreeTest {
         binaryTree.levelTraversal(treeNodeHandler);
         Assert.assertEquals(treeNodeHandler.signedTag(), "1422798311");
     }
+
 }
