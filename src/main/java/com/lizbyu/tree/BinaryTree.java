@@ -179,4 +179,26 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
         }
         return Math.max(deep(node.left), deep(node.right)) + 1;
     }
+
+    public boolean isSymmetric() {
+        if (root == null) {
+            return true;
+        }
+        return isSymmetricPair(root.getLeft(), root.getRight());
+    }
+
+    private boolean isSymmetricPair(Node<V> p, Node<V> q) {
+        if (p == null && q == null) {
+            return true;
+        }
+
+        if (p == null || q == null) {
+            return false;
+        } else if (p.getVal() != q.getVal()) {
+            return false;
+        }
+
+        return isSymmetricPair(p.getLeft(), q.getRight())
+                && isSymmetricPair(p.getRight(), q.getLeft());
+    }
 }
