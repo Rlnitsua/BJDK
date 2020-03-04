@@ -100,4 +100,8 @@ public class BinaryTreeTest {
         Assert.assertEquals(treeNodeHandler.signedTag(), "1422798311");
     }
 
+    @Test
+    public void deep() {
+        Assert.assertEquals(binaryTree.deep(), 4);
+    }
 }

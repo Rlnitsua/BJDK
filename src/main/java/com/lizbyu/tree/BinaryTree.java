@@ -168,4 +168,15 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
         invert(node.left);
         invert(node.right);
     }
+
+    public int deep() {
+        return deep(root);
+    }
+
+    private int deep(Node<V> node) {
+        if (node == null) {
+            return 0;
+        }
+        return Math.max(deep(node.left), deep(node.right)) + 1;
+    }
 }
