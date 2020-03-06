@@ -1,7 +1,6 @@
 package com.lizbyu.util;
 
 import com.lizbyu.tree.BinaryTree;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,7 +51,7 @@ public class BinaryTreeUtilsTestCreateFromPI {
 
     @Test
     public void create() {
-        BinaryTree<Integer, BinaryTree.Node<Integer>> p = binaryTreeUtils.create(preorder, inorder);
+        BinaryTree<Integer, BinaryTree.Node<Integer>> p = binaryTreeUtils.createFromPI(preorder, inorder);
         BinaryTree<Integer, BinaryTree.Node<Integer>> q = binaryTreeUtils.create(treeNode);
         assertTrue(binaryTreeUtils.isSameTree(p.getRoot(), q.getRoot()));
     }
