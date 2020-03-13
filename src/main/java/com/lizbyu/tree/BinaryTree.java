@@ -201,4 +201,21 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
         return isSymmetricPair(p.getLeft(), q.getRight())
                 && isSymmetricPair(p.getRight(), q.getLeft());
     }
+
+    public boolean hasPathSum(int num) {
+        return hasPathSum((Node<Integer>) root, num, 0);
+    }
+
+    private boolean hasPathSum(Node<Integer> node, int sum, int currentSum) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.left == null && node.right == null) {
+            return sum == currentSum + node.getVal();
+        }
+
+        return hasPathSum(node.left, sum, currentSum + node.getVal())
+                || hasPathSum(node.right, sum, currentSum + node.getVal());
+    }
 }
