@@ -1,4 +1,4 @@
-package com.lizbyu.lang;
+package com.lizbyu.internal.lang;
 
 /**
  * A class implements the <code>Traversable</code> interface

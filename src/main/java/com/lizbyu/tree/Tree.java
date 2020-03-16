@@ -1,7 +1,5 @@
 package com.lizbyu.tree;
 
-import com.lizbyu.lang.NodeHandler;
-
 public class Tree implements TreeTraversable {
 
     @Override

@@ -1,4 +1,4 @@
-package com.lizbyu.util;
+package com.lizbyu.internal.util;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

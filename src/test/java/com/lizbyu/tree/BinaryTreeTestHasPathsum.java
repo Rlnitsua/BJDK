@@ -1,6 +1,7 @@
 package com.lizbyu.tree;
 
-import com.lizbyu.util.BinaryTreeUtils;
+import com.lizbyu.tree.binary.BinaryTree;
+import com.lizbyu.tree.binary.BinaryTrees;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +19,7 @@ public class BinaryTreeTestHasPathsum {
     private int sum;
     private boolean res;
 
-    private BinaryTreeUtils<Integer> binaryTreeUtils;
+    private BinaryTrees<Integer> binaryTrees;
 
     public BinaryTreeTestHasPathsum(List<Integer> nodeList, int sum, boolean res) {
         this.nodeList = nodeList;
@@ -39,12 +40,12 @@ public class BinaryTreeTestHasPathsum {
 
     @Before
     public void setUp() throws Exception {
-        binaryTreeUtils = new BinaryTreeUtils<>();
+        binaryTrees = new BinaryTrees<>();
     }
 
     @Test
     public void hasPathSum() {
-        BinaryTree<Integer, BinaryTree.Node<Integer>> tree = binaryTreeUtils.create(nodeList);
+        BinaryTree<Integer, BinaryTree.Node<Integer>> tree = binaryTrees.create(nodeList);
         assertEquals(tree.hasPathSum(sum), res);
     }
 }

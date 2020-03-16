@@ -1,4 +1,4 @@
-package com.lizbyu.lang;
+package com.lizbyu.tree;
 
 /**
  * basic element node used in ADT

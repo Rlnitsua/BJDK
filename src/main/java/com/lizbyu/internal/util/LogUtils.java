@@ -1,6 +1,6 @@
-package com.lizbyu.util;
+package com.lizbyu.internal.util;
 
-import com.lizbyu.tree.BinaryTree;
+import com.lizbyu.tree.binary.BinaryTree;
 
 import java.util.Arrays;
 import java.util.List;

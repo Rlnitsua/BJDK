@@ -1,11 +1,9 @@
-package com.lizbyu.util;
-
-import com.lizbyu.tree.BinaryTree;
+package com.lizbyu.tree.binary;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class BinaryTreeUtils<V> {
+public class BinaryTrees<V> {
 
     public BinaryTree<V, BinaryTree.Node<V>> create(List<V> valueSequence) {
         return new BinaryTree<>(createRootNode(valueSequence, 0));

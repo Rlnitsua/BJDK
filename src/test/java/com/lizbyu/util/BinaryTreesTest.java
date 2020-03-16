@@ -1,24 +1,23 @@
 package com.lizbyu.util;
 
-import com.lizbyu.tree.BinaryTree;
+import com.lizbyu.tree.binary.BinaryTree;
+import com.lizbyu.tree.binary.BinaryTrees;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class BinaryTreeUtilsTest {
-    private BinaryTreeUtils<Integer> binaryTreeUtils;
+public class BinaryTreesTest {
+    private BinaryTrees<Integer> binaryTrees;
     private List<Integer> list;
 
-    public BinaryTreeUtilsTest(List list) {
+    public BinaryTreesTest(List list) {
         this.list = list;
     }
 
@@ -35,13 +34,13 @@ public class BinaryTreeUtilsTest {
 
     @Before
     public void setUp() throws Exception {
-        binaryTreeUtils = new BinaryTreeUtils<>();
+        binaryTrees = new BinaryTrees<>();
     }
 
     @Test
     public void isSameTree() {
-        BinaryTree<Integer, BinaryTree.Node<Integer>> tree0 = binaryTreeUtils.create(list);
-        BinaryTree<Integer, BinaryTree.Node<Integer>> tree1 = binaryTreeUtils.create(list);
-        assertTrue(binaryTreeUtils.isSameTree(tree0.getRoot(), tree1.getRoot()));
+        BinaryTree<Integer, BinaryTree.Node<Integer>> tree0 = binaryTrees.create(list);
+        BinaryTree<Integer, BinaryTree.Node<Integer>> tree1 = binaryTrees.create(list);
+        assertTrue(binaryTrees.isSameTree(tree0.getRoot(), tree1.getRoot()));
     }
 }

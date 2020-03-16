@@ -1,6 +1,7 @@
 package com.lizbyu.tree;
 
-import com.lizbyu.util.BinaryTreeUtils;
+import com.lizbyu.tree.binary.BinaryTree;
+import com.lizbyu.tree.binary.BinaryTrees;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BinaryTreeTest {
-    private BinaryTreeUtils<Integer> binaryTreeUtils;
+    private BinaryTrees<Integer> binaryTrees;
     private BinaryTree<Integer, BinaryTree.Node<Integer>> binaryTree;
 
     /**
@@ -23,8 +24,8 @@ public class BinaryTreeTest {
      */
     @Before
     public void setUp() {
-        binaryTreeUtils = new BinaryTreeUtils<>();
-        binaryTree = binaryTreeUtils.create(Arrays.asList(1, 2, 4, 8, 9, 27, null, null, null, 11, null, null, 3));
+        binaryTrees = new BinaryTrees<>();
+        binaryTree = binaryTrees.create(Arrays.asList(1, 2, 4, 8, 9, 27, null, null, null, 11, null, null, 3));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.lizbyu.lang;
+package com.lizbyu.tree;
 
 /**
  * handle each node, print message and cache node info

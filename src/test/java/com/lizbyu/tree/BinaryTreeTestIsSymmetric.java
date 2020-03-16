@@ -1,6 +1,7 @@
 package com.lizbyu.tree;
 
-import com.lizbyu.util.BinaryTreeUtils;
+import com.lizbyu.tree.binary.BinaryTree;
+import com.lizbyu.tree.binary.BinaryTrees;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,7 @@ import static org.junit.Assert.*;
 public class BinaryTreeTestIsSymmetric {
     private List<Integer> list;
     private boolean isSymmetric;
-    private BinaryTreeUtils<Integer> binaryTreeUtils;
+    private BinaryTrees<Integer> binaryTrees;
 
     public BinaryTreeTestIsSymmetric(List<Integer> list, boolean isSymmetric) {
         this.list = list;
@@ -36,12 +37,12 @@ public class BinaryTreeTestIsSymmetric {
 
     @Before
     public void setUp() {
-        binaryTreeUtils = new BinaryTreeUtils<>();
+        binaryTrees = new BinaryTrees<>();
     }
 
     @Test
     public void isSymmetric() {
-        BinaryTree<Integer, BinaryTree.Node<Integer>> tree = binaryTreeUtils.create(list);
+        BinaryTree<Integer, BinaryTree.Node<Integer>> tree = binaryTrees.create(list);
         assertEquals(tree.isSymmetric(), isSymmetric);
     }
 }
