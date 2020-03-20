@@ -115,5 +115,38 @@ public class BinaryTrees<V> {
         return isSameTree(p.getLeft(), q.getLeft()) && isSameTree(p.getRight(), q.getRight());
     }
 
+    public boolean isBST(BinaryTree tree) {
+        return isBST(tree.getRoot());
+    }
+
+    private boolean isBST(BinaryTree.Node<Integer> node) {
+        if (node == null) {
+            return true;
+        }
+
+        if (node.getLeft() == null && node.getRight() == null) {
+            return true;
+        }
+
+        if (node.getLeft() == null) {
+            if (node.getVal() > node.getRight().getVal()) {
+                return false;
+            } else {
+                return isBST(node.getRight());
+            }
+        } else if (node.getRight() == null) {
+            if (node.getVal() < node.getLeft().getVal()) {
+                return false;
+            } else {
+                return isBST(node.getLeft());
+            }
+        } else {
+            if (node.getVal() > node.getRight().getVal() || node.getVal() < node.getLeft().getVal()) {
+                return false;
+            } else {
+                return isBST(node.getLeft()) && isBST(node.getRight());
+            }
+        }
+    }
 
 }
