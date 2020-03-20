@@ -2,7 +2,7 @@ package com.lizbyu.util;
 
 import com.lizbyu.internal.util.LogUtils;
 import com.lizbyu.tree.binary.BinaryTree;
-import com.lizbyu.tree.binary.BinaryTrees;
+import com.lizbyu.utils.BinaryTrees;
 import com.lizbyu.tree.TreeNodeHandler;
 import org.junit.Before;
 import org.junit.Test;

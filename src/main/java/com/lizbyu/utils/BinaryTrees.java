@@ -1,4 +1,6 @@
-package com.lizbyu.tree.binary;
+package com.lizbyu.utils;
+
+import com.lizbyu.tree.binary.BinaryTree;
 
 import java.util.Arrays;
 import java.util.List;

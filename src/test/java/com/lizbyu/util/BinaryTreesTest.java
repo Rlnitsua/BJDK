@@ -1,7 +1,7 @@
 package com.lizbyu.util;
 
 import com.lizbyu.tree.binary.BinaryTree;
-import com.lizbyu.tree.binary.BinaryTrees;
+import com.lizbyu.utils.BinaryTrees;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

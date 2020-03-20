@@ -17,7 +17,7 @@ import java.util.Queue;
  * @param <V> val type
  */
 public class BinaryTree<V, N extends Node<V>> extends Tree {
-    private Node<V> root;
+    protected Node<V> root;
 
     public BinaryTree(Node<V> root) {
         this.root = root;
