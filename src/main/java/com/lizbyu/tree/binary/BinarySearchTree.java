@@ -9,7 +9,7 @@ public class BinarySearchTree extends BinaryTree {
 
     public boolean insert(int val) {
         Node insertRes = insert(root, val);
-        return insertRes == null;
+        return insertRes != null;
     }
 
     private Node<Integer> insert(Node<Integer> node, int val) {
@@ -24,6 +24,23 @@ public class BinarySearchTree extends BinaryTree {
             node.setLeft(insert(node.getLeft(), val));
         }
         return node;
+    }
+
+    public boolean search(int val) {
+        Node res = search(root, val);
+        return res != null;
+    }
+
+    private Node<Integer> search(Node<Integer> node, int val) {
+        if (node == null || node.getVal() == val) {
+            return node;
+        }
+
+        if (val > node.getVal()) {
+            return search(node.getRight(), val);
+        } else {
+            return search(node.getLeft(), val);
+        }
     }
 
 }
