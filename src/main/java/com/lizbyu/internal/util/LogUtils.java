@@ -5,6 +5,7 @@ import com.lizbyu.tree.binary.BinaryTree;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public  class LogUtils {
 	public static void d(String TAG, Object xMsg){
 		String logLevel = "D/";
@@ -62,8 +63,8 @@ public  class LogUtils {
 	private static String getTwoDimensionArrayMsg(int[][] array) {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
-		for(int i = 0; i < array.length; i++){
-			sb.append(Arrays.toString(array[i]));
+		for (int[] ints : array) {
+			sb.append(Arrays.toString(ints));
 		}
 		sb.append("]");
 		return new String(sb);
@@ -85,7 +86,7 @@ public  class LogUtils {
 			return "";
 		}
 		StringBuffer sb = new StringBuffer();
-		sb.append(node.getVal() + " ");
+		sb.append(node.getVal()).append(" ");
 		sb.append(treeNodeValues(node.getLeft()));
 		sb.append(treeNodeValues(node.getRight()));
 		return new String(sb);

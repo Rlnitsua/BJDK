@@ -11,10 +11,6 @@ public class Node<V> {
         this.val = val;
     }
 
-    public void setVal(V val) {
-        this.val = val;
-    }
-
     public V getVal() {
         return val;
     }

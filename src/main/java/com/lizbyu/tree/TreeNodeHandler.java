@@ -13,11 +13,11 @@ public class TreeNodeHandler<V, N extends Node<V>> implements NodeHandler<N> {
         System.out.print(node.getVal() + " - ");
     }
 
-    public String signedTag() {
+    String signedTag() {
         return sb.toString();
     }
 
-    public void reset() {
+    void reset() {
         sb = new StringBuffer();
     }
 }
