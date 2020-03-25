@@ -5,7 +5,7 @@ package com.lizbyu.tree;
  * @param <V> val type
  */
 public class Node<V> {
-    private V val;
+    protected V val;
 
     public Node(V val) {
         this.val = val;

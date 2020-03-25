@@ -48,6 +48,10 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
             this.right = right;
         }
 
+        public void setV(V v) {
+            super.val = v;
+        }
+
         public Node<V> getLeft() {
             return left;
         }

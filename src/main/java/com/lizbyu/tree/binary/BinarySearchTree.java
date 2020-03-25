@@ -43,4 +43,43 @@ public class BinarySearchTree extends BinaryTree {
         }
     }
 
+    public void remove(int val) {
+        root = remove(root, val);
+    }
+
+    private Node<Integer> remove(Node<Integer> currentNode, int val) {
+        if (currentNode == null) {
+            return null;
+        }
+
+        if (val > currentNode.getVal()) {
+            currentNode.setRight(remove(currentNode.getRight(), val));
+        } else if (val < currentNode.getVal()) {
+            currentNode.setLeft(remove(currentNode.getLeft(), val));
+        } else {
+            // contains 1) left==null && right != null 2) left==null && right==null
+            if (currentNode.getLeft() == null) {
+                return currentNode.getRight();
+            } else if (currentNode.getRight() == null) {
+                return currentNode.getLeft();
+            } else {
+                Node<Integer> postNode = getPostNode(currentNode.getRight());
+                currentNode.setV(postNode.getVal());
+                currentNode.setRight(remove(currentNode.getRight(), postNode.getVal()));
+            }
+        }
+
+        return currentNode;
+    }
+
+    private Node<Integer> getPostNode(Node<Integer> currentNode) {
+        Node<Integer> postNode;
+        if (currentNode.getLeft() != null) {
+            postNode = getPostNode(currentNode.getLeft());
+        } else {
+            postNode = currentNode;
+        }
+        return postNode;
+    }
+
 }
