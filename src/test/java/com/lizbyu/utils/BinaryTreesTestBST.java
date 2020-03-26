@@ -27,6 +27,7 @@ public class BinaryTreesTestBST {
                 {Arrays.asList(1), true},
                 {Arrays.asList(1, 2, 3, 4, 5, 6), false},
                 {Arrays.asList(4, 2, 6, 1, null, null, 7), true},
+                {Arrays.asList(10, 5, 15, null, null, 6, 20), false}
         });
     }
 

@@ -1,4 +1,4 @@
-package com.lizbyu.util;
+package com.lizbyu.utils;
 
 import com.lizbyu.tree.binary.BinaryTree;
 import com.lizbyu.utils.BinaryTrees;

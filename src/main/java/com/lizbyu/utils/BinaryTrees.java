@@ -2,6 +2,7 @@ package com.lizbyu.utils;
 
 import com.lizbyu.tree.binary.BinaryTree;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -116,9 +117,30 @@ public class BinaryTrees<V> {
     }
 
     public boolean isBST(BinaryTree tree) {
-        return isBST(tree.getRoot());
+        List<Integer> nodeValList = new ArrayList<>();
+        inOrderTraveral(tree.getRoot(), nodeValList);
+
+        for (int i = 0; i < nodeValList.size() - 1; i++) {
+            if (nodeValList.get(i) >= nodeValList.get(i + 1)) {
+                return false;
+            }
+        }
+        return true;
     }
 
+    private void inOrderTraveral(BinaryTree.Node<Integer> root, List<Integer> nodeValList) {
+        if (root == null) {
+            return;
+        }
+
+        inOrderTraveral(root.getLeft(), nodeValList);
+        nodeValList.add(root.getVal());
+        inOrderTraveral(root.getRight(), nodeValList);
+    }
+
+    // note : error implement
+    // error case : [10,5,15,null,null,6,20]
+    @SuppressWarnings("unused")
     private boolean isBST(BinaryTree.Node<Integer> node) {
         if (node == null) {
             return true;
