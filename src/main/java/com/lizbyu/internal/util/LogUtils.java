@@ -9,7 +9,7 @@ import java.util.List;
 public  class LogUtils {
 	public static void d(String TAG, Object xMsg){
 		String logLevel = "D/";
-		String content = constructLogContent(logLevel, TAG, xMsg + "");
+		String content = constructLogContent(logLevel, TAG, xMsg.toString());
 		System.out.println(content);
 	}
 	
@@ -61,13 +61,13 @@ public  class LogUtils {
 	}
 	
 	private static String getTwoDimensionArrayMsg(int[][] array) {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append("[");
 		for (int[] ints : array) {
 			sb.append(Arrays.toString(ints));
 		}
 		sb.append("]");
-		return new String(sb);
+		return sb.toString();
 	}
 	
 	public static void d(String TAG, BinaryTree.Node node){
@@ -93,15 +93,10 @@ public  class LogUtils {
 	}
 
 	private static String constructLogContent(String logLevel, String TAG, String msg) {
-		StringBuffer sb = new StringBuffer();
-		sb.append(getCurrentTime());
-		sb.append(logLevel);
-		sb.append(getTagMessage(TAG));
-		sb.append(msg);
-		return new String(sb);
+		return currentTime() + logLevel + getTagMessage(TAG) + msg;
 	}
 
-	private static String getCurrentTime() {
+	private static String currentTime() {
 		return TimeUtils.getCurrentTime();
 	}
 	
