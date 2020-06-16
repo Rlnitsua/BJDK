@@ -1,4 +1,4 @@
-package com.lizbyu.tree;
+package com.lizbyu.internal.tree;
 
 public class Tree implements TreeTraversable {
 

@@ -1,6 +1,6 @@
-package com.lizbyu.tree.binary;
+package com.lizbyu.internal.tree.binary;
 
-import com.lizbyu.utils.BinaryTrees;
+import com.lizbyu.internal.utils.BinaryTrees;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

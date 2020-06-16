@@ -1,6 +1,6 @@
-package com.lizbyu.utils;
+package com.lizbyu.internal.utils;
 
-import com.lizbyu.tree.binary.BinarySearchTree;
+import com.lizbyu.internal.tree.binary.BinarySearchTree;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

@@ -1,8 +1,8 @@
-package com.lizbyu.tree.binary;
+package com.lizbyu.internal.tree.binary;
 
-import com.lizbyu.tree.Node;
-import com.lizbyu.tree.NodeHandler;
-import com.lizbyu.tree.Tree;
+import com.lizbyu.internal.tree.Node;
+import com.lizbyu.internal.tree.NodeHandler;
+import com.lizbyu.internal.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -34,7 +34,7 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
     /**
      * Basic binary tree node
      */
-    public static class Node<V> extends com.lizbyu.tree.Node<V> {
+    public static class Node<V> extends com.lizbyu.internal.tree.Node<V> {
         private Node<V> left;
         private Node<V> right;
 

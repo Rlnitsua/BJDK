@@ -1,7 +1,6 @@
-package com.lizbyu.utils;
+package com.lizbyu.internal.utils;
 
-import com.lizbyu.tree.binary.BinaryTree;
-import com.lizbyu.utils.BinaryTrees;
+import com.lizbyu.internal.tree.binary.BinaryTree;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.lizbyu.tree;
+package com.lizbyu.internal.tree;
 
 public class TreeNodeHandler<V, N extends Node<V>> implements NodeHandler<N> {
     private StringBuffer sb;

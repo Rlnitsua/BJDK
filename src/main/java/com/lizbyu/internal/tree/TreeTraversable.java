@@ -1,4 +1,4 @@
-package com.lizbyu.tree;
+package com.lizbyu.internal.tree;
 
 import com.lizbyu.internal.lang.Traversable;
 

@@ -1,4 +1,4 @@
-package com.lizbyu.tree.binary;
+package com.lizbyu.internal.tree.binary;
 
 @SuppressWarnings("unused")
 public class BinarySearchTree extends BinaryTree {
