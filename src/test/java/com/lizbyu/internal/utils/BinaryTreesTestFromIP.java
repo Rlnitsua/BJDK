@@ -13,9 +13,9 @@ import java.util.List;
 
 @RunWith(Parameterized.class)
 public class BinaryTreesTestFromIP {
-    private Integer[] inorder;
-    private Integer[] postorder;
-    private List<Integer> nodeList;
+    private final Integer[] inorder;
+    private final Integer[] postorder;
+    private final List<Integer> nodeList;
     private BinaryTrees<Integer> binaryTrees;
 
     public BinaryTreesTestFromIP(Integer[] inorder, Integer[] postorder, List<Integer> nodeList) {
@@ -43,7 +43,7 @@ public class BinaryTreesTestFromIP {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         binaryTrees = new BinaryTrees<>();
     }
 

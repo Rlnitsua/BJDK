@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class BinarySearchTreeTestInsert {
-    private List<Integer> nodeList;
-    private int insertVal;
-    private List<Integer> afterInsertNodeList;
+    private final List<Integer> nodeList;
+    private final int insertVal;
+    private final List<Integer> afterInsertNodeList;
 
     public BinarySearchTreeTestInsert(List<Integer> nodeList, int insertVal, List<Integer> afterInsertNodeList) {
         this.nodeList = nodeList;

@@ -14,9 +14,9 @@ import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class BinaryTreesTestCreateFromPI {
-    private Integer[] preorder;
-    private Integer[] inorder;
-    private List<Integer> treeNode;
+    private final Integer[] preorder;
+    private final Integer[] inorder;
+    private final List<Integer> treeNode;
     private static BinaryTrees<Integer> binaryTrees;
 
     public BinaryTreesTestCreateFromPI(Integer[] preorder, Integer[] inorder, List<Integer> treeNode) {

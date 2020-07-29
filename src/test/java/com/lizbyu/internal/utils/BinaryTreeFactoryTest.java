@@ -12,7 +12,7 @@ public class BinaryTreeFactoryTest {
     private BinaryTrees<Integer> binaryTreeFactory;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         binaryTreeFactory = new BinaryTrees<>();
     }
 
@@ -21,12 +21,12 @@ public class BinaryTreeFactoryTest {
         BinaryTree<Integer, BinaryTree.Node<Integer>> integerNodeBinaryTree
                 = binaryTreeFactory.create(Arrays.asList(1, 2, 3));
         LogUtils.d(TAG, "level traversal ");
-        integerNodeBinaryTree.levelTraversal(new TreeNodeHandler());
+        integerNodeBinaryTree.levelTraversal(new TreeNodeHandler<>());
         LogUtils.d(TAG, "pre order traversal ");
-        integerNodeBinaryTree.preorderTraversal(new TreeNodeHandler());
+        integerNodeBinaryTree.preorderTraversal(new TreeNodeHandler<>());
         LogUtils.d(TAG, "inorder traversal ");
-        integerNodeBinaryTree.inorderTraversal(new TreeNodeHandler());
+        integerNodeBinaryTree.inorderTraversal(new TreeNodeHandler<>());
         LogUtils.d(TAG, "post order traversal ");
-        integerNodeBinaryTree.postorderTraversal(new TreeNodeHandler());
+        integerNodeBinaryTree.postorderTraversal(new TreeNodeHandler<>());
     }
 }

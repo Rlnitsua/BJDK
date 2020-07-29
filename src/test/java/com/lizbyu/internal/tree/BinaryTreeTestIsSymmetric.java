@@ -15,8 +15,8 @@ import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class BinaryTreeTestIsSymmetric {
-    private List<Integer> list;
-    private boolean isSymmetric;
+    private final List<Integer> list;
+    private final boolean isSymmetric;
     private BinaryTrees<Integer> binaryTrees;
 
     public BinaryTreeTestIsSymmetric(List<Integer> list, boolean isSymmetric) {

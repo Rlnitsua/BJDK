@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BinaryTreeTest {
-    private BinaryTrees<Integer> binaryTrees;
     private BinaryTree<Integer, BinaryTree.Node<Integer>> binaryTree;
 
     /**
@@ -24,14 +23,14 @@ public class BinaryTreeTest {
      */
     @Before
     public void setUp() {
-        binaryTrees = new BinaryTrees<>();
+        BinaryTrees<Integer> binaryTrees = new BinaryTrees<>();
         binaryTree = binaryTrees.create(Arrays.asList(1, 2, 4, 8, 9, 27, null, null, null, 11, null, null, 3));
     }
 
     @Test
     public void preorderTraversal() {
         System.out.println("\npre order traversal");
-        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        TreeNodeHandler<Integer, BinaryTree.Node<Integer>> treeNodeHandler = new TreeNodeHandler<>();
         binaryTree.preorderTraversal(treeNodeHandler);
         Assert.assertEquals(treeNodeHandler.signedTag(), "1289114273");
     }
@@ -39,7 +38,7 @@ public class BinaryTreeTest {
     @Test
     public void inorderTraversal() {
         System.out.println("\nin order traversal");
-        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        TreeNodeHandler<Integer, BinaryTree.Node<Integer>> treeNodeHandler = new TreeNodeHandler<>();
         binaryTree.inorderTraversal(treeNodeHandler);
         Assert.assertEquals(treeNodeHandler.signedTag(), "8211912734");
     }
@@ -47,7 +46,7 @@ public class BinaryTreeTest {
     @Test
     public void postorderTraversal() {
         System.out.println("\npost order traversal");
-        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        TreeNodeHandler<Integer, BinaryTree.Node<Integer>> treeNodeHandler = new TreeNodeHandler<>();
         binaryTree.postorderTraversal(treeNodeHandler);
         Assert.assertEquals(treeNodeHandler.signedTag(), "8119232741");
     }
@@ -55,7 +54,7 @@ public class BinaryTreeTest {
     @Test
     public void levelTraversal() {
         System.out.println("\nlevel traversal");
-        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        TreeNodeHandler<Integer, BinaryTree.Node<Integer>> treeNodeHandler = new TreeNodeHandler<>();
         binaryTree.levelTraversal(treeNodeHandler);
         Assert.assertEquals(treeNodeHandler.signedTag(), "1248927113");
     }
@@ -79,7 +78,7 @@ public class BinaryTreeTest {
         System.out.println("\ninvert binary tree");
         binaryTree.invert();
 
-        TreeNodeHandler treeNodeHandler = new TreeNodeHandler();
+        TreeNodeHandler<Integer, BinaryTree.Node<Integer>> treeNodeHandler = new TreeNodeHandler<>();
 
         System.out.println("\npre order traversal");
         binaryTree.preorderTraversal(treeNodeHandler);
