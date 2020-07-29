@@ -116,7 +116,7 @@ public class BinaryTrees<V> {
         return isSameTree(p.getLeft(), q.getLeft()) && isSameTree(p.getRight(), q.getRight());
     }
 
-    public boolean isBST(BinaryTree tree) {
+    public boolean isBST(BinaryTree<Integer, BinaryTree.Node<Integer>> tree) {
         List<Integer> nodeValList = new ArrayList<>();
         inOrderTraveral(tree.getRoot(), nodeValList);
 
@@ -169,6 +169,23 @@ public class BinaryTrees<V> {
                 return isBST(node.getLeft()) && isBST(node.getRight());
             }
         }
+    }
+
+    public boolean hasPathSum(BinaryTree.Node<Integer> node, int num) {
+        return hasPathSum(node, num, 0);
+    }
+
+    private boolean hasPathSum(BinaryTree.Node<Integer> node, int sum, int currentSum) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.getLeft() == null && node.getRight() == null) {
+            return sum == currentSum + node.getVal();
+        }
+
+        return hasPathSum(node.getLeft(), sum, currentSum + node.getVal())
+                || hasPathSum(node.getRight(), sum, currentSum + node.getVal());
     }
 
 }

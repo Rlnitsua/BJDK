@@ -2,7 +2,7 @@ package com.lizbyu.internal.tree;
 
 import com.lizbyu.internal.lang.Traversable;
 
-public interface TreeTraversable<V, N extends Node<V>> extends Traversable {
+public interface TreeTraversable<V, N> extends Traversable {
     /**
      * In this traversal method, the root is visited first
      * then the left sub-tree, and later the right sub-tree.

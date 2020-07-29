@@ -14,7 +14,10 @@ public class TreeNodeHandler<V, N extends Node<V>> implements NodeHandler<N> {
     }
 
     String signedTag() {
-        return sb.toString();
+        if (sb.length() <= 1) {
+            throw new RuntimeException("signedTag must be handled first!");
+        }
+        return sb.substring(0, sb.length() - 2);
     }
 
     void reset() {

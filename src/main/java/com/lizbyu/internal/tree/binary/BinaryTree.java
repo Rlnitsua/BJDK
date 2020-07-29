@@ -1,6 +1,5 @@
 package com.lizbyu.internal.tree.binary;
 
-import com.lizbyu.internal.tree.Node;
 import com.lizbyu.internal.tree.NodeHandler;
 import com.lizbyu.internal.tree.Tree;
 
@@ -16,19 +15,15 @@ import java.util.Queue;
  * left or right child.
  * @param <V> val type
  */
-public class BinaryTree<V, N extends Node<V>> extends Tree {
-    protected Node<V> root;
+public class BinaryTree<V, N extends BinaryTree.Node<V>> extends Tree<V, N> {
+    protected N root;
 
-    public BinaryTree(Node<V> root) {
+    public BinaryTree(N root) {
         this.root = root;
     }
 
-    public Node<V> getRoot() {
+    public N getRoot() {
         return root;
-    }
-
-    public void setRoot(Node<V> root) {
-        this.root = root;
     }
 
     /**
@@ -70,58 +65,62 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
     }
 
     @Override
-    public void preorderTraversal(NodeHandler handler) {
+    public void preorderTraversal(NodeHandler<N> handler) {
         preorderTraversal(root, handler);
     }
 
-    private void preorderTraversal(Node<V> root, NodeHandler<Node<V>> handler) {
+    @SuppressWarnings("unchecked")
+    private void preorderTraversal(N root, NodeHandler<N> handler) {
         if (root == null) {
             return;
         }
 
         handler.handle(root);
-        preorderTraversal(root.left, handler);
-        preorderTraversal(root.right, handler);
+        preorderTraversal((N) root.getLeft(), handler);
+        preorderTraversal((N) root.getRight(), handler);
     }
 
     @Override
-    public void inorderTraversal(NodeHandler handler) {
+    public void inorderTraversal(NodeHandler<N> handler) {
         inorderTraversal(root, handler);
     }
 
-    private void inorderTraversal(Node<V> root, NodeHandler<Node<V>> handler) {
+    @SuppressWarnings("unchecked")
+    private void inorderTraversal(N root, NodeHandler<N> handler) {
         if (root == null) {
             return;
         }
 
-        inorderTraversal(root.left, handler);
+        inorderTraversal((N) root.getLeft(), handler);
         handler.handle(root);
-        inorderTraversal(root.right, handler);
+        inorderTraversal((N) root.getRight(), handler);
     }
 
     @Override
-    public void postorderTraversal(NodeHandler handler) {
+    public void postorderTraversal(NodeHandler<N> handler) {
         postorderTraversal(root, handler);
     }
 
-    private void postorderTraversal(Node<V> root, NodeHandler<Node<V>> handler) {
+    @SuppressWarnings("unchecked")
+    private void postorderTraversal(N root, NodeHandler<N> handler) {
         if (root == null) {
             return;
         }
 
-        postorderTraversal(root.left, handler);
-        postorderTraversal(root.right, handler);
+        postorderTraversal((N) root.getLeft(), handler);
+        postorderTraversal((N) root.getRight(), handler);
         handler.handle(root);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public void levelTraversal(NodeHandler handler) {
+    public void levelTraversal(NodeHandler<N> handler) {
         Queue<Node<V>> queue = new LinkedList<>();
         queue.add(root);
 
         while(!queue.isEmpty()) {
             Node<V> poll = queue.poll();
-            handler.handle(poll);
+            handler.handle((N) poll);
             if (poll.left != null) {
                 queue.add(poll.left);
             }
@@ -207,20 +206,5 @@ public class BinaryTree<V, N extends Node<V>> extends Tree {
                 && isSymmetricPair(p.getRight(), q.getLeft());
     }
 
-    public boolean hasPathSum(int num) {
-        return hasPathSum((Node<Integer>) root, num, 0);
-    }
 
-    private boolean hasPathSum(Node<Integer> node, int sum, int currentSum) {
-        if (node == null) {
-            return false;
-        }
-
-        if (node.left == null && node.right == null) {
-            return sum == currentSum + node.getVal();
-        }
-
-        return hasPathSum(node.left, sum, currentSum + node.getVal())
-                || hasPathSum(node.right, sum, currentSum + node.getVal());
-    }
 }

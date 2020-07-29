@@ -1,24 +1,24 @@
 package com.lizbyu.internal.tree;
 
-public class Tree implements TreeTraversable {
+public class Tree<V, N extends Node<V>> implements TreeTraversable<V, N> {
 
     @Override
-    public void preorderTraversal(NodeHandler handle) {
+    public void preorderTraversal(NodeHandler<N> handle) {
 
     }
 
     @Override
-    public void inorderTraversal(NodeHandler handle) {
+    public void inorderTraversal(NodeHandler<N> handle) {
 
     }
 
     @Override
-    public void postorderTraversal(NodeHandler handle) {
+    public void postorderTraversal(NodeHandler<N> handle) {
 
     }
 
     @Override
-    public void levelTraversal(NodeHandler handle) {
+    public void levelTraversal(NodeHandler<N> handle) {
 
     }
 
@@ -31,4 +31,5 @@ public class Tree implements TreeTraversable {
     public void reverseTraversal() {
 
     }
+
 }
