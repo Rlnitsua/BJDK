@@ -1,6 +1,9 @@
 package com.lizbyu.internal.tree;
 
+import com.lizbyu.internal.utils.LogUtils;
+
 public class TreeNodeHandler<V, N extends Node<V>> implements NodeHandler<N> {
+    private static final String TAG = "TreeNodeHandler";
     private StringBuffer sb;
 
     public TreeNodeHandler() {
@@ -10,14 +13,14 @@ public class TreeNodeHandler<V, N extends Node<V>> implements NodeHandler<N> {
     @Override
     public void handle(N node) {
         sb.append(node.getVal());
-        System.out.print(node.getVal() + " - ");
+        LogUtils.d(TAG, node.getVal() + " - ");
     }
 
     String signedTag() {
-        if (sb.length() <= 1) {
+        if (sb.length() == 0) {
             throw new RuntimeException("signedTag must be handled first!");
         }
-        return sb.substring(0, sb.length() - 2);
+        return sb.toString();
     }
 
     void reset() {
